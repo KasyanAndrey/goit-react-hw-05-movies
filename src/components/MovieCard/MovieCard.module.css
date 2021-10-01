@@ -7,14 +7,17 @@ img {
 }
 
 .description__list {
+  /* width: 300px; */
+  /* height: 300px;s */
   list-style: none;
+  font-size: 14px;
   font-weight: 500;
   color: #2a363b;
-  padding: 36px;
+  padding: 0 24px;
 }
 
 .description__list li {
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 }
 
 .description__list h2,

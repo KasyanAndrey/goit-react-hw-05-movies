@@ -8,6 +8,8 @@ export default function MovieCard({ movie }) {
       <img
         src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
         alt={movie.original_title}
+        width="210"
+        height="300"
       />
       <ul className={s.description__list}>
         <li>

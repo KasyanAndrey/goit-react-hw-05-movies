@@ -4,7 +4,7 @@ import Container from './components/Container/Container';
 
 import HomePage from './pages/HomePage';
 import MoviesPage from './pages/MoviesPage';
-import DetailsMoviePage from './pages/DetailsMoviePage';
+import MovieDetailsPage from './pages/MovieDetailsPage';
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
         </Route>
 
         <Route path="/movies/:movieId">
-          <DetailsMoviePage />
+          <MovieDetailsPage />
         </Route>
 
         <Route>
@@ -31,3 +31,11 @@ export default function App() {
     </Container>
   );
 }
+
+/* 
++ '/' - компонент <HomePage>, домашняя страница со списком популярных кинофильмов.
+- '/movies' - компонент <MoviesPage>, страница поиска фильмов по ключевому слову.
++ '/movies/:movieId' - компонент <MovieDetailsPage>, страница с детальной информацией о кинофильме.
+- /movies/:movieId/cast - компонент <Cast>, информация о актерском составе. Рендерится на странице <MovieDetailsPage>.
+- /movies/:movieId/reviews - компонент <Reviews>, информация об обзорах. Рендерится на странице <MovieDetailsPage>.
+*/

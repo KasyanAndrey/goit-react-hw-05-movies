@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+}
+
+img {
+  border-radius: 6px;
+}
+
+.description__list {
+  list-style: none;
+  font-weight: 500;
+  color: #2a363b;
+  padding: 36px;
+}
+
+.description__list li {
+  margin-bottom: 36px;
+}
+
+.description__list h2,
+h3 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.description__list p {
+  margin: 0;
+  font-weight: 400;
+  color: #2a363b;
+}
+
+.genres__list {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  font-weight: 400;
+  color: #2a363b;
+}
+
+.genres__list li {
+  margin: 0;
+  margin-right: 12px;
+}

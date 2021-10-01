@@ -20,39 +20,37 @@ function fetchQueryMovie(searchQuery) {
 }
 
 function fetchDetailsMovie(movieId) {
-  return fetch(`${BASE_URL}trending/movie/${movieId}?api_key=${KEY}`)
-    .then(responce => {
-      if (responce.ok) {
-        return responce.json();
-      }
+  return fetch(`${BASE_URL}movie/${movieId}?api_key=${KEY}`).then(responce => {
+    if (responce.ok) {
+      return responce.json();
+    }
 
-      return Promise.reject(new Error('Not found'));
-    })
-    .then(responce => responce.results);
+    return Promise.reject(new Error('Not found'));
+  });
 }
 
 function fetchActorsMovie(movieId) {
-  return fetch(`${BASE_URL}trending/movie/${movieId}/credits?api_key=${KEY}`)
-    .then(responce => {
+  return fetch(`${BASE_URL}movie/${movieId}/credits?api_key=${KEY}`).then(
+    responce => {
       if (responce.ok) {
         return responce.json();
       }
 
       return Promise.reject(new Error('Not found'));
-    })
-    .then(responce => responce.results);
+    },
+  );
 }
 
 function fetchReviewsMovie(movieId) {
-  return fetch(`${BASE_URL}trending/movie/${movieId}/reviews?api_key=${KEY}`)
-    .then(responce => {
+  return fetch(`${BASE_URL}movie/${movieId}/reviews?api_key=${KEY}`).then(
+    responce => {
       if (responce.ok) {
         return responce.json();
       }
 
       return Promise.reject(new Error('Not found'));
-    })
-    .then(responce => responce.results);
+    },
+  );
 }
 
 export {

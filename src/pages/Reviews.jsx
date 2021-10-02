@@ -17,8 +17,8 @@ export default function Cast({ movies }) {
         <ul>
           {reviews.results.map(result => (
             <li key={result.id}>
-              <h3>Autor: {result.autor}</h3>
-              <p>Name: {result.content}</p>
+              <h3>Autor: {result.author}</h3>
+              <p>{result.content}</p>
             </li>
           ))}
         </ul>

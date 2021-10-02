@@ -1,16 +1,29 @@
+import React, { Suspense } from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useParams, useRouteMatch } from 'react-router-dom';
+import {
+  useParams,
+  useRouteMatch,
+  useLocation,
+  useHistory,
+} from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import * as moviesApi from '../services/moviesApi';
 
 import ButtonGoBack from '../components/ButtonGoBack/ButtonGoBack';
 import MovieCard from '../components/MovieCard/MovieCard';
+import InfoContainer from '../components/InfoContainer/InfoContainer';
+import Loader from '../components/Loader/Loader';
 
-import Cast from './Cast';
-import Reviews from './Reviews';
-
+const Cast = React.lazy(() =>
+  import('./Cast.jsx' /* webpackChunkName: "cast" */),
+);
+const Reviews = React.lazy(() =>
+  import('./Reviews.jsx' /* webpackChunkName: "reviews" */),
+);
 
 export default function MovieDetailsPage() {
+  const history = useHistory();
+  const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const { url } = useRouteMatch();
@@ -19,31 +32,29 @@ export default function MovieDetailsPage() {
     moviesApi.fetchDetailsMovie(movieId).then(setMovie);
   }, [movieId]);
 
+  const onGoBack = () => {
+    history.push(location?.state?.from.location ?? '/');
+  };
+
   return (
     <>
-      <ButtonGoBack>Go Back</ButtonGoBack>
-
+      <ButtonGoBack onClick={onGoBack}>Go Back</ButtonGoBack>
       {movie && (
         <>
           <MovieCard movie={movie} />
+          <InfoContainer url={url} />
 
-          <hr />
-          <p>Additional information</p>
-          <ul>
-            <Link to={`${url}/cast`}>Cast</Link>
-            <Link to={`${url}/reviews`}>Reviews</Link>
-          </ul>
+          <Suspense fallback={<Loader />}>
+            <Switch>
+              <Route path="/movies/:movieId/cast" exact>
+                <Cast />
+              </Route>
 
-          <hr />
-          <Switch>
-            <Route path="/movies/:movieId/cast" exact>
-              <Cast />
-            </Route>
-
-            <Route path="/movies/:movieId/reviews"exact>
-            <Reviews />
-          </Route>
-          </Switch>
+              <Route path="/movies/:movieId/reviews" exact>
+                <Reviews />
+              </Route>
+            </Switch>
+          </Suspense>
         </>
       )}
     </>

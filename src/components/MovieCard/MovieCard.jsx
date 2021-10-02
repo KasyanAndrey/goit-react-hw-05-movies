@@ -6,10 +6,8 @@ export default function MovieCard({ movie }) {
   return (
     <div className={s.wrapper}>
       <img
-        src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
         alt={movie.original_title}
-        width="210"
-        height="300"
       />
       <ul className={s.description__list}>
         <li>

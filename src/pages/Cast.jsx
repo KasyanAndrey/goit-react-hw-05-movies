@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import * as moviesApi from '../services/moviesApi';
 
-export default function Cast({ movies }) {
+export default function Cast() {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
 
@@ -25,7 +25,7 @@ export default function Cast({ movies }) {
                 }
                 alt={item.name}
               />
-              <p>Name: {item.name}</p>
+              <p>{item.name}</p>
               <p>Character: {item.character}</p>
             </li>
           ))}

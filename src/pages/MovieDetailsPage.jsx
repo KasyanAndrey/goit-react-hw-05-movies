@@ -9,7 +9,6 @@ import {
 import { Switch, Route } from 'react-router-dom';
 import * as moviesApi from '../services/moviesApi';
 
-import ButtonGoBack from '../components/ButtonGoBack/ButtonGoBack';
 import MovieCard from '../components/MovieCard/MovieCard';
 import InfoContainer from '../components/InfoContainer/InfoContainer';
 import Loader from '../components/Loader/Loader';
@@ -25,24 +24,23 @@ export default function MovieDetailsPage() {
   const history = useHistory();
   const location = useLocation();
   const { movieId } = useParams();
-  const [movie, setMovie] = useState(null);
   const { url } = useRouteMatch();
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     moviesApi.fetchDetailsMovie(movieId).then(setMovie);
   }, [movieId]);
 
   const onGoBack = () => {
-    history.push(location?.state?.from.location ?? '/');
+    history.push(location?.state?.from ?? "/");
   };
 
   return (
     <>
-      <ButtonGoBack onClick={onGoBack}>Go Back</ButtonGoBack>
       {movie && (
         <>
-          <MovieCard movie={movie} />
-          <InfoContainer url={url} />
+          <MovieCard movie={movie} onClickBack={onGoBack} />
+          <InfoContainer url={url} location={location}/>
 
           <Suspense fallback={<Loader />}>
             <Switch>

@@ -1,0 +1,36 @@
+.list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 16px;
+}
+
+.item {
+  margin-bottom: 16px;
+  display: flex;
+  width: 200px;
+}
+
+.link {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  color: #2a363b;
+  font-size: 18px;
+}
+
+.link:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+  color: #fa0707;
+}
+
+img {
+  margin-bottom: 8px;
+}
+
+.name {
+}

@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
-import * as moviesApi from '../services/moviesApi';
-import Searchbar from '../components/Searchbar/Searchbar';
+import { useLocation, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Loader from '../components/Loader/Loader';
+
+import * as moviesApi from '../services/moviesApi';
+
+import Searchbar from '../components/Searchbar/Searchbar';
+import MovieList from '../components/MovieList/MovieList';
 
 export default function MoviesPage() {
-  const [movies, setMovie] = useState(null);
-  const [query, setQuery] = useState(null);
   const location = useLocation();
+  const url = new URLSearchParams(location.search).get('query');
   const history = useHistory();
-  const { url } = useRouteMatch();
+  const [movies, setMovie] = useState(null);
+  const [query, setQuery] = useState(url ?? '');
 
   useEffect(() => {
     if (!query) {
@@ -31,7 +33,7 @@ export default function MoviesPage() {
     };
 
     fetchMovies();
-  }, [query]);
+  }, [query, url]);
 
   const handleFormSubmit = query => {
     history.push({
@@ -45,21 +47,8 @@ export default function MoviesPage() {
   return (
     <>
       <Searchbar onSubmit={handleFormSubmit} />
-      <ul>
-        {movies &&
-          movies.map(movie => (
-            <li key={movie.id}>
-              <Link
-                to={{
-                  pathname: `${url}/${movie.id}`,
-                  state: { from: location },
-                }}
-              >
-                {movie.title}
-              </Link>
-            </li>
-          ))}
-      </ul>
+      
+      {movies && <MovieList movies={movies} location={location} />}
       <ToastContainer autoClose={3000} />
     </>
   );

@@ -1,0 +1,47 @@
+.wrapper {
+  padding: 8px;
+  border-radius: 4px;
+  background-image: url('https://sdelatlending.ru/wp-content/themes/xmarkup/img/subtle-freckles.png');
+  background-color: #ffa600;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2a363b;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.list {
+  margin: 0;
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
+
+.item {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 400;
+  color: #2a363b;
+  font-size: 16px;
+}
+
+.link:before {
+  content: '\2937';
+  margin-right: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fa0707;
+}
+
+.link:hover {
+  transition: color 0.2s linear;
+  color: #fa0707;
+}

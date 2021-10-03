@@ -1,5 +1,6 @@
 .wrapper {
   display: flex;
+  margin-bottom: 12px;
 }
 
 img {
@@ -8,14 +9,14 @@ img {
 
 .description__list {
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #2a363b;
   padding: 0 24px;
 }
 
 .description__list li {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .description__list h2,
@@ -41,4 +42,29 @@ h3 {
 .genres__list li {
   margin: 0;
   margin-right: 12px;
+}
+
+.Button {
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 400;
+  color: #2a363b;
+  font-size: 16px;
+}
+
+.Button:before {
+  content: '\2190';
+  margin-right: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fa0707;
+}
+
+.Button:hover {
+  color: #fa0707;
+  transition: color 0.2s linear;
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import s from './Searchbar.module.css';
 import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
+import s from './Searchbar.module.css';
 
 export default function Searchbar({ onSubmit }) {
   const [query, setQuery] = useState('');
@@ -32,6 +33,7 @@ export default function Searchbar({ onSubmit }) {
           placeholder="Search images and photos"
           value={query}
           onChange={handleChange}
+          autoComplete="off"
         />
 
         <button type="submit" className={s.SearchFormButton}>

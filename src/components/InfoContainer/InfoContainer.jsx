@@ -1,24 +1,39 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function InfoContainer({ url }) {
+import s from './InfoContainer.module.css';
+
+export default function InfoContainer({ url, location }) {
   return (
-    <div>
-      <hr />
-      <p>Additional information</p>
-      <ul>
-        <li>
-          <Link to={`${url}/cast`}>Cast</Link>
+    <div className={s.wrapper}>
+      <p className={s.title}>Additional information</p>
+      <ul className={s.list}>
+        <li className={s.item}>
+          <NavLink
+            to={{
+              pathname: `${url}/cast`,
+              state: { from: location.state.from },
+            }} className={s.link}
+          >
+            Cast
+          </NavLink>
         </li>
-        <li>
-          <Link to={`${url}/reviews`}>Reviews</Link>
+        <li className={s.item}>
+          <NavLink
+            to={{
+              pathname: `${url}/reviews`,
+              state: { from: location.state.from },
+            }} className={s.link}
+          >
+            Reviews
+          </NavLink>
         </li>
       </ul>
-      <hr />
     </div>
   );
 }
 
 InfoContainer.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  location: PropTypes.object,
 };

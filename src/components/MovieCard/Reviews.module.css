@@ -1,0 +1,30 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+}
+
+.item {
+  margin-bottom: 16px;
+}
+
+.autor {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2a363b;
+}
+
+.content {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #2a363b;
+  padding-left: 26px;
+}
+
+.notification {
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2a363b;
+}

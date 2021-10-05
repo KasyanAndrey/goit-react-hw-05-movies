@@ -30,7 +30,7 @@ export default function Searchbar({ onSubmit }) {
           className={s.SearchFormInput}
           type="text"
           name="searchQuery"
-          placeholder="Search images and photos"
+          placeholder="Search movies"
           value={query}
           onChange={handleChange}
           autoComplete="off"

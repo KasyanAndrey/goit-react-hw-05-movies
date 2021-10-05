@@ -20,17 +20,16 @@
   font-weight: 500;
   color: #2a363b;
   font-size: 18px;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
 .link:hover {
-  transform: scale(1.1);
-  transition-duration: 0.5s;
+  transform: scale(1.07);
   color: #fa0707;
 }
 
-img {
+.movie__list {
+  width: 100%;
+  object-fit: cover;
   margin-bottom: 8px;
-}
-
-.name {
 }

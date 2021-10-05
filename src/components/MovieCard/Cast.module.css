@@ -1,6 +1,6 @@
 .list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 0;
   padding: 16px;
@@ -31,4 +31,18 @@
   font-weight: 400;
   color: #2a363b;
   font-size: 18px;
+}
+
+.notification {
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2a363b;
+}
+
+.cast__image {
+  height: 70%;
+  width: 70%;
+  margin: 0 auto;
+  object-fit: cover;
 }
